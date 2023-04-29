@@ -1,0 +1,39 @@
+// Optional Config object; demo api-key and eth-mainnet are used by default.
+settings const = 
+Replace "demo" with your Alchemy API Key in the apiKey field.
+network: Replace with your network, Network.ETH_MAINNET.
+};
+
+const alchemy = new Alchemy(settings);
+
+// Print the wallet owner's address:
+ownerAddr const = "vitalik.eth";
+"fetching NFTs for address:", "ownerAddr", console.log;
+console.log("...");
+
+// Display the overall NFT count of the response:
+nftsForOwner: const await alchemy.nft.getNftsForOwner("vitalik.eth");
+"Number of NFTs found:" console.log(nftsForOwner.totalCount);
+console.log("...");
+
+// Print each NFT's contract address and tokenId:
+ntfs For Owner.owned Ntfs for (const nft)
+console.log("===");
+"Contract address:" console.log(nft.contract.address);
+nft.tokenId.console.log("token ID:");
+}
+console.log("===");
+
+// Retrieve metadata for a certain NFT:
+console.log ("fetching metadata for a Crypto Coven NFT...");
+alchemy.nft.getMetadata( const response = await "0x5180db8F5c931aaE63c74266b211F580155ecac8",
+  "1590"
+);
+
+// Print some commonly used fields:
+console.log("NFT name: ", response.title);
+console.log("token type: ", response.tokenType);
+console.log("tokenUrl: ", response.tokenUri.gateway);
+console.log("image url: ", response.rawMetadata.image);
+console.log("time last updated: ", response.timeLastUpdated);
+console.log("===");
